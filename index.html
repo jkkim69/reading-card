@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>오늘의 독서 & 성경 기록</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
   <!-- Google Fonts: 손글씨(날짜/일차) & 명조/바탕체(제목/본문) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,7 +112,7 @@
         </div>
         <div>
           <h1 class="font-bold text-stone-800 text-base sm:text-lg leading-tight">오늘의 기록 카드 메이커</h1>
-          <p class="text-xs text-stone-500 hidden sm:block">독서 & 성경 묵상 진도 관리 및 인스타그램 카드 저장</p>
+          <p class="text-xs text-stone-500 hidden sm:block">독서 & 성경 묵상 진도 관리 및 카드 저장</p>
         </div>
       </div>
 
@@ -137,7 +139,7 @@
           실시간 카드 미리보기 (1:1 정사각형)
         </span>
         <span id="previewCountBadge" class="text-xs text-stone-500 bg-white px-2.5 py-0.5 rounded-full border border-stone-200">
-          선택된 책 5권
+          선택된 책 0권
         </span>
       </div>
 
@@ -152,7 +154,7 @@
             <div class="flex items-center gap-3 mb-1">
               <div class="flex items-center gap-2.5 shrink-0">
                 <span class="w-[3.5px] h-[22px] bg-[#5B84B1] inline-block rounded-full"></span>
-                <span id="cardDateText" class="font-handwriting text-[31px] leading-none tracking-wide text-[#262523]">2026.11.19</span>
+                <span id="cardDateText" class="font-handwriting text-[31px] leading-none tracking-wide text-[#262523]">2026.11.26</span>
               </div>
               <div class="flex-1 h-[1px] bg-[#5B84B1]/45 mt-1"></div>
             </div>
@@ -164,7 +166,7 @@
               </h2>
               <div class="flex flex-col items-end">
                 <span id="cardDayStreak" class="font-handwriting text-[44px] leading-[0.95] text-[#22211F] tracking-tight px-1">
-                  176일차
+                  1일차
                 </span>
                 <div class="w-full h-[2px] bg-[#5B84B1]/85 mt-1 rounded-full"></div>
               </div>
@@ -188,7 +190,7 @@
               </div>
               <div class="w-[1px] h-7 bg-[#5B84B1]/45"></div>
               <div class="font-serif-bold font-bold text-[31px] leading-none text-[#22211F] tracking-tight">
-                총 <span id="cardTotalPages">119</span>쪽
+                총 <span id="cardTotalPages">0</span>쪽
               </div>
             </div>
 
@@ -205,7 +207,7 @@
               </div>
               <!-- 오른쪽 줄노트 텍스트 -->
               <div class="flex-1 pl-3.5 pr-1 pt-0">
-                <p id="cardNoteText" class="font-serif-kr text-[16.5px] text-[#262523] whitespace-pre-wrap break-words leading-[32px]">자신만의 역할, 사명을 찾아야 한다.</p>
+                <p id="cardNoteText" class="font-serif-kr text-[16.5px] text-[#262523] whitespace-pre-wrap break-words leading-[32px]"></p>
               </div>
             </div>
           </div>
@@ -255,7 +257,7 @@
               <button onclick="toggleStartDateModal()" class="text-[11px] text-[#5B84B1] font-semibold hover:underline">시작일 자동계산</button>
             </div>
             <div class="flex items-center gap-2">
-              <input type="number" id="inputDayStreak" min="1" value="176" oninput="updateCardPreview()" class="w-full px-3 py-2 rounded-lg border border-stone-300 bg-white text-sm font-bold focus:outline-none focus:border-[#5B84B1]" />
+              <input type="number" id="inputDayStreak" min="1" value="1" oninput="updateCardPreview()" class="w-full px-3 py-2 rounded-lg border border-stone-300 bg-white text-sm font-bold focus:outline-none focus:border-[#5B84B1]" />
               <span class="text-sm font-semibold text-stone-600 shrink-0">일차</span>
             </div>
           </div>
@@ -305,7 +307,7 @@
             <label id="editorNoteTitle" class="text-sm font-bold text-stone-800">오늘의 생각</label>
             <span class="text-xs text-stone-400">최대 4줄 권장 (카드 줄노트에 맞춰 표시)</span>
           </div>
-          <textarea id="inputNoteText" rows="3" placeholder="오늘 읽으며 마음에 남은 문장이나 생각을 기록해보세요..." oninput="updateCardPreview()" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 text-sm leading-relaxed focus:outline-none focus:border-[#5B84B1]">자신만의 역할, 사명을 찾아야 한다.</textarea>
+          <textarea id="inputNoteText" rows="3" placeholder="오늘 읽으며 마음에 남은 문장이나 생각을 기록해보세요..." oninput="updateCardPreview()" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 text-sm leading-relaxed focus:outline-none focus:border-[#5B84B1]"></textarea>
         </div>
       </div>
 
@@ -320,7 +322,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div class="sm:col-span-2">
               <label class="block text-xs font-semibold text-stone-600 mb-1">책 제목 (카드 표기명)</label>
-              <input type="text" id="newBookTitle" placeholder="예: 어린 왕자, 로마서(1)" class="w-full px-3 py-2 rounded-lg border border-stone-300 bg-white text-sm" />
+              <input type="text" id="newBookTitle" placeholder="예: 독서의 기술, 로마서" class="w-full px-3 py-2 rounded-lg border border-stone-300 bg-white text-sm" />
             </div>
             <div>
               <label class="block text-xs font-semibold text-stone-600 mb-1">전체 쪽수 (장수)</label>
@@ -379,7 +381,7 @@
             <p class="text-xs text-stone-500">날짜를 클릭하면 해당 날짜의 카드 상태로 불러옵니다.</p>
           </div>
           <button onclick="resetDemoData()" class="text-xs text-stone-400 hover:text-rose-600 underline">
-            샘플 데이터 초기화
+            전체 초기화
           </button>
         </div>
 
@@ -390,7 +392,7 @@
     </section>
   </main>
 
-  <!-- 토스트 알림 메시지 (alert 대신 사용) -->
+  <!-- 토스트 알림 메시지 -->
   <div id="toastMessage" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-stone-900/95 text-white px-5 py-3 rounded-full text-sm font-medium shadow-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
     <span id="toastIcon">✨</span>
     <span id="toastText">저장되었습니다.</span>
@@ -398,242 +400,54 @@
 
   <script>
     // ==========================================
-    // 1. 상태 관리 및 기본 샘플 데이터 (업로드 이미지 완벽 재현)
+    // 1. 상태 관리 및 초기 빈 데이터 (1일차부터 시작)
     // ==========================================
-    const STORAGE_KEY = 'daily_reading_devotional_app_v1';
+    const STORAGE_KEY = 'daily_reading_devotional_app_v2';
+    const TODAY_ISO = '2026-11-26';
 
-    // 감성적인 SVG 책 표지 생성기 (사진이 없는 경우에도 실제 책 표지처럼 렌더링)
-    function generateArtisticCoverSVG(title, subtitle, bgColor, accentColor = '#F7F4EB', styleType = 'classic') {
+    function generateArtisticCoverSVG(title, subtitle, bgColor) {
       const safeTitle = (title || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
       const safeSub = (subtitle || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      // 긴 제목 줄바꿈 처리
       const lines = safeTitle.length > 7
         ? [safeTitle.slice(0, Math.ceil(safeTitle.length / 2)), safeTitle.slice(Math.ceil(safeTitle.length / 2))]
         : [safeTitle];
 
-      let graphicDetail = '';
-      if (styleType === 'narnia') {
-        graphicDetail = `
-          <rect x="0" y="0" width="200" height="280" fill="#E8D8B0"/>
-          <rect x="8" y="8" width="184" height="264" fill="none" stroke="#8C6D3F" stroke-width="1.5"/>
-          <circle cx="100" cy="108" r="56" fill="#183A37" stroke="#C59B48" stroke-width="3"/>
-          <circle cx="100" cy="108" r="46" fill="#285943"/>
-          <path d="M72 135 Q100 85 128 135 Z" fill="#D9A441" opacity="0.85"/>
-          <text x="100" y="188" text-anchor="middle" font-family="serif" font-size="11" fill="#5A4221">나니아 나라 이야기 6</text>
-          <text x="100" y="218" text-anchor="middle" font-family="serif" font-weight="bold" font-size="24" fill="#2A1F10">${safeTitle}</text>
-          <text x="100" y="256" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6E532C">C.S. 루이스</text>
-        `;
-      } else if (styleType === 'map') {
-        graphicDetail = `
-          <rect x="0" y="0" width="200" height="280" fill="#EBF1F5"/>
-          <rect x="12" y="14" width="54" height="32" rx="4" fill="#2563EB"/>
-          <rect x="73" y="14" width="54" height="32" rx="4" fill="#1E293B"/>
-          <rect x="134" y="14" width="54" height="32" rx="4" fill="#B91C1C"/>
-          <path d="M15 110 Q75 75 130 115 T190 95" fill="none" stroke="#D97706" stroke-width="3"/>
-          <circle cx="95" cy="115" r="38" fill="#93C5FD" opacity="0.55"/>
-          <path d="M55 95 Q95 130 155 100" fill="none" stroke="#2563EB" stroke-width="2" stroke-dasharray="4 3"/>
-          <text x="16" y="205" font-family="sans-serif" font-weight="bold" font-size="18" fill="#1E293B">지도로 보아야</text>
-          <text x="16" y="228" font-family="sans-serif" font-weight="bold" font-size="18" fill="#1E293B">보인다 2</text>
-          <text x="16" y="255" font-family="sans-serif" font-size="9" fill="#475569">새로운 지정학의 전략지도</text>
-        `;
-      } else if (styleType === 'brain') {
-        graphicDetail = `
-          <rect x="0" y="0" width="200" height="280" fill="#FAF8F5"/>
-          <text x="100" y="22" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#D97706" font-weight="bold">하버드대 의사가 알려주는 5가지 리셋 버튼</text>
-          <text x="100" y="45" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="17" fill="#1E293B">회복탄력성의 뇌과학</text>
-          <circle cx="100" cy="128" r="44" fill="none" stroke="#EF4444" stroke-width="3" stroke-dasharray="190 60"/>
-          <circle cx="100" cy="128" r="35" fill="none" stroke="#F59E0B" stroke-width="3" stroke-dasharray="150 50"/>
-          <circle cx="100" cy="128" r="26" fill="none" stroke="#10B981" stroke-width="3" stroke-dasharray="110 40"/>
-          <circle cx="100" cy="128" r="17" fill="none" stroke="#6366F1" stroke-width="3" stroke-dasharray="70 30"/>
-          <circle cx="100" cy="124" r="4" fill="#1E293B"/>
-          <rect x="97" y="129" width="6" height="12" rx="2" fill="#1E293B"/>
-          <text x="100" y="245" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#64748B">아디티 네루카 지음</text>
-        `;
-      } else if (styleType === 'ev') {
-        graphicDetail = `
-          <rect x="0" y="0" width="200" height="280" fill="#F4F5F7"/>
-          <text x="100" y="44" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="24" fill="#1F2937">전기차</text>
-          <text x="100" y="72" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="24" fill="#1F2937">메커니즘</text>
-          <text x="100" y="100" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="24" fill="#1F2937">교과서</text>
-          <ellipse cx="105" cy="182" rx="68" ry="26" fill="#86EFAC" opacity="0.5"/>
-          <rect x="52" y="158" width="96" height="32" rx="12" fill="#1E3A8A"/>
-          <rect x="68" y="148" width="58" height="18" rx="8" fill="#60A5FA"/>
-          <circle cx="72" cy="190" r="11" fill="#111827"/>
-          <circle cx="128" cy="190" r="11" fill="#111827"/>
-          <circle cx="42" cy="235" r="24" fill="#4D7C0F"/>
-          <text x="42" y="238" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FFF" font-weight="bold">EV 구조해설</text>
-        `;
-      } else if (styleType === 'bluebooks') {
-        graphicDetail = `
-          <rect x="0" y="0" width="200" height="280" fill="#0277BD"/>
-          <rect x="20" y="28" width="150" height="28" rx="3" fill="#8BC34A" transform="rotate(4 95 42)"/>
-          <text x="95" y="47" text-anchor="middle" font-family="sans-serif" font-weight="bold" font-size="11" fill="#FFF" transform="rotate(4 95 42)">독서에 전부를 걸어보세요</text>
-          <rect x="25" y="78" width="155" height="26" rx="3" fill="#FFFFFF" transform="rotate(-14 100 91)"/>
-          <rect x="20" y="122" width="155" height="26" rx="3" fill="#7CB342" transform="rotate(-14 97 135)"/>
-          <rect x="25" y="166" width="155" height="26" rx="3" fill="#B3E5FC" transform="rotate(-14 102 179)"/>
-          <rect x="20" y="210" width="160" height="28" rx="3" fill="#FFFFFF" transform="rotate(6 100 224)"/>
-        `;
-      } else if (styleType === 'bible_old') {
-        graphicDetail = `
-          <rect x="0" y="0" width="200" height="280" fill="#5D3A3A"/>
-          <rect x="10" y="10" width="180" height="260" rx="6" fill="none" stroke="#D7CCC8" stroke-width="3" stroke-dasharray="12 4 6 3"/>
-          <rect x="18" y="18" width="164" height="244" rx="4" fill="#4E2E2E" stroke="#A1887F" stroke-width="1.5"/>
-          <text x="100" y="55" text-anchor="middle" font-family="serif" font-weight="bold" font-size="18" fill="#D7CCC8" letter-spacing="4">성경전서</text>
-          <circle cx="100" cy="135" r="32" fill="none" stroke="#8D6E63" stroke-width="2"/>
-          <path d="M100 112 V158 M84 128 H116" stroke="#BCAAA4" stroke-width="3"/>
-          <text x="100" y="235" text-anchor="middle" font-family="serif" font-size="12" fill="#D7CCC8">${safeTitle}</text>
-        `;
-      } else if (styleType === 'psalm') {
-        graphicDetail = `
-          <rect x="0" y="0" width="200" height="280" fill="#A8A29E"/>
-          <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#D6D3D1"/>
-            <stop offset="65%" stop-color="#E7E5E4"/>
-            <stop offset="100%" stop-color="#44403C"/>
-          </linearGradient>
-          <rect x="8" y="8" width="184" height="264" fill="url(#skyG)"/>
-          <circle cx="100" cy="115" r="24" fill="#FFFBEB" opacity="0.85"/>
-          <path d="M8 210 Q75 175 192 220 L192 272 L8 272 Z" fill="#292524"/>
-          <text x="100" y="68" text-anchor="middle" font-family="serif" font-weight="bold" font-size="16" fill="#292524">시편기도의 우물</text>
-          <text x="100" y="252" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#E7E5E4">시편기도의 집</text>
-        `;
-      } else if (styleType === 'repent') {
-        graphicDetail = `
-          <rect x="0" y="0" width="200" height="280" fill="#1E4E79"/>
-          <radialGradient id="lightG" cx="50%" cy="55%" r="50%">
-            <stop offset="0%" stop-color="#FFF7ED"/>
-            <stop offset="45%" stop-color="#BAE6FD"/>
-            <stop offset="100%" stop-color="#1E4E79"/>
-          </radialGradient>
-          <rect x="0" y="0" width="200" height="280" fill="url(#lightG)"/>
-          <text x="100" y="26" text-anchor="middle" font-family="serif" font-size="9" fill="#E0F2FE">하늘문을 여는 열쇠</text>
-          <text x="100" y="64" text-anchor="middle" font-family="cursive, serif" font-weight="bold" font-size="34" fill="#FFFFFF">회개</text>
-          <polygon points="75,245 125,245 110,175 90,175" fill="#FFFFFF" opacity="0.75"/>
-          <text x="100" y="264" text-anchor="middle" font-family="serif" font-size="9" fill="#1E3A8A">내 삶의 주인 바꾸기</text>
-        `;
-      } else {
-        // 사용자 추가 책용 깔끔한 하드커버 디자인
-        graphicDetail = `
-          <rect x="0" y="0" width="200" height="280" fill="${bgColor}"/>
-          <rect x="14" y="0" width="6" height="280" fill="rgba(0,0,0,0.18)"/>
-          <rect x="28" y="34" width="144" height="136" rx="4" fill="#F7F4EB" opacity="0.94"/>
-          <line x1="42" y1="52" x2="158" y2="52" stroke="${bgColor}" stroke-width="2"/>
-          ${lines.map((line, idx) => `
-            <text x="100" y="${96 + idx * 28}" text-anchor="middle" font-family="serif" font-weight="bold" font-size="19" fill="#22211F">${line}</text>
-          `).join('')}
-          <line x1="42" y1="152" x2="158" y2="152" stroke="${bgColor}" stroke-width="1.5"/>
-          <text x="100" y="236" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.85)">${safeSub || 'TODAY LOG'}</text>
-        `;
-      }
+      const graphicDetail = `
+        <rect x="0" y="0" width="200" height="280" fill="${bgColor}"/>
+        <rect x="14" y="0" width="6" height="280" fill="rgba(0,0,0,0.18)"/>
+        <rect x="28" y="34" width="144" height="136" rx="4" fill="#F7F4EB" opacity="0.94"/>
+        <line x1="42" y1="52" x2="158" y2="52" stroke="${bgColor}" stroke-width="2"/>
+        ${lines.map((line, idx) => `
+          <text x="100" y="${96 + idx * 28}" text-anchor="middle" font-family="serif" font-weight="bold" font-size="19" fill="#22211F">${line}</text>
+        `).join('')}
+        <line x1="42" y1="152" x2="158" y2="152" stroke="${bgColor}" stroke-width="1.5"/>
+        <text x="100" y="236" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.85)">${safeSub || 'TODAY LOG'}</text>
+      `;
 
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" width="200" height="280">${graphicDetail}</svg>`;
       return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
     }
 
-    // 초기 기본 데이터
     const DEFAULT_STATE = {
-      currentMode: 'reading', // 'reading' | 'bible'
-      startDate: '2026-05-28', // 2026.11.19 기준 176일차
+      currentMode: 'reading',
+      startDate: TODAY_ISO,
       selectedPresetColor: '#2B4C7E',
       modes: {
         reading: {
           mainTitle: '오늘의 독서 기록',
           noteLabel: '오늘의 생각',
-          date: '2026-11-19',
-          dayStreak: 176,
-          noteText: '자신만의 역할, 사명을 찾아야 한다.',
-          books: [
-            {
-              id: 'r1',
-              title: '은의자',
-              totalPages: 320,
-              currentPages: 48, // 15%
-              todayPages: 24,
-              selected: true,
-              coverUrl: generateArtisticCoverSVG('은의자', '', '#E8D8B0', '#FFF', 'narnia')
-            },
-            {
-              id: 'r2',
-              title: '지도로 보아야\n보인다 2',
-              totalPages: 340,
-              currentPages: 58, // 17%
-              todayPages: 25,
-              selected: true,
-              coverUrl: generateArtisticCoverSVG('지도로 보아야 보인다 2', '', '#EBF1F5', '#FFF', 'map')
-            },
-            {
-              id: 'r3',
-              title: '회복탄력성의\n뇌과학',
-              totalPages: 360,
-              currentPages: 83, // 23%
-              todayPages: 20,
-              selected: true,
-              coverUrl: generateArtisticCoverSVG('회복탄력성의 뇌과학', '', '#FAF8F5', '#FFF', 'brain')
-            },
-            {
-              id: 'r4',
-              title: '전기차\n메커니즘 교과서',
-              totalPages: 280,
-              currentPages: 56, // 20%
-              todayPages: 20,
-              selected: true,
-              coverUrl: generateArtisticCoverSVG('전기차 메커니즘 교과서', '', '#F4F5F7', '#FFF', 'ev')
-            },
-            {
-              id: 'r5',
-              title: '독서에 전부를\n걸어보세요',
-              totalPages: 240,
-              currentPages: 120, // 50%
-              todayPages: 30,
-              selected: true,
-              coverUrl: generateArtisticCoverSVG('독서에 전부를 걸어보세요', '', '#0277BD', '#FFF', 'bluebooks')
-            }
-          ]
+          date: TODAY_ISO,
+          dayStreak: 1,
+          noteText: '',
+          books: []
         },
         bible: {
           mainTitle: '오늘의 성경 기록',
           noteLabel: '오늘의 묵상',
-          date: '2026-11-19',
-          dayStreak: 176,
-          noteText: '내 삶에 기적을 행하시는 하나님을 찬양합니다!',
-          books: [
-            {
-              id: 'b1',
-              title: '구약성경(1)',
-              totalPages: 929,
-              currentPages: 223, // 24%
-              todayPages: 3,
-              selected: true,
-              coverUrl: generateArtisticCoverSVG('구약성경', '', '#5D3A3A', '#FFF', 'bible_old')
-            },
-            {
-              id: 'b2',
-              title: '신약성경(1)',
-              totalPages: 260,
-              currentPages: 16, // 6%
-              todayPages: 2,
-              selected: true,
-              coverUrl: generateArtisticCoverSVG('신약성경', '', '#5D3A3A', '#FFF', 'bible_old')
-            },
-            {
-              id: 'b3',
-              title: '시편 기도의\n우물(20)',
-              totalPages: 200,
-              currentPages: 152, // 76%
-              todayPages: 1,
-              selected: true,
-              coverUrl: generateArtisticCoverSVG('시편 기도의 우물', '', '#A8A29E', '#FFF', 'psalm')
-            },
-            {
-              id: 'b4',
-              title: '회개(2)',
-              totalPages: 180,
-              currentPages: 162, // 90%
-              todayPages: 2,
-              selected: true,
-              coverUrl: generateArtisticCoverSVG('회개', '', '#1E4E79', '#FFF', 'repent')
-            }
-          ]
+          date: TODAY_ISO,
+          dayStreak: 1,
+          noteText: '',
+          books: []
         }
       },
       history: []
@@ -663,7 +477,7 @@
     }
 
     // ==========================================
-    // 2. 유틸리티 함수 (알림, 카드 리사이징, 날짜 포맷)
+    // 2. 유틸리티 함수
     // ==========================================
     function showToast(msg, icon = '✨') {
       const toast = document.getElementById('toastMessage');
@@ -678,7 +492,6 @@
       }, 2600);
     }
 
-    // 600x600 기준 카드를 화면 너비에 맞춰 정확히 비율 축소/확대
     function resizeCardPreview() {
       const wrapper = document.getElementById('cardWrapper');
       const card = document.getElementById('captureCard');
@@ -691,7 +504,7 @@
     window.addEventListener('resize', resizeCardPreview);
 
     function formatDateDot(isoDate) {
-      if (!isoDate) return '2026.11.19';
+      if (!isoDate) return TODAY_ISO.replace(/-/g, '.');
       return isoDate.replace(/-/g, '.');
     }
 
@@ -738,7 +551,7 @@
     function toggleStartDateModal() {
       const box = document.getElementById('startDateBox');
       box.classList.toggle('hidden');
-      document.getElementById('inputStartDate').value = appState.startDate || '2026-05-28';
+      document.getElementById('inputStartDate').value = appState.startDate || TODAY_ISO;
     }
 
     function recalcStreakFromStart() {
@@ -781,7 +594,6 @@
     function updateCardPreview() {
       const modeData = getActiveModeData();
 
-      // 입력값 상태 반영
       modeData.date = document.getElementById('inputDate').value;
       modeData.dayStreak = parseInt(document.getElementById('inputDayStreak').value, 10) || 1;
       modeData.mainTitle = document.getElementById('inputMainTitle').value;
@@ -789,22 +601,18 @@
       modeData.noteText = document.getElementById('inputNoteText').value;
       document.getElementById('editorNoteTitle').textContent = modeData.noteLabel || '오늘의 생각';
 
-      // 카드 DOM 텍스트 업데이트
       document.getElementById('cardDateText').textContent = formatDateDot(modeData.date);
       document.getElementById('cardDayStreak').textContent = `${modeData.dayStreak}일차`;
       document.getElementById('cardMainTitle').textContent = modeData.mainTitle;
       document.getElementById('cardNoteLabel').textContent = modeData.noteLabel;
       document.getElementById('cardNoteText').textContent = modeData.noteText;
 
-      // 선택된 책 필터링 (최대 6권)
       const selectedBooks = modeData.books.filter(b => b.selected).slice(0, 6);
       document.getElementById('previewCountBadge').textContent = `선택된 책 ${selectedBooks.length}권`;
 
-      // 총 읽은 분량 계산
       const totalTodayPages = selectedBooks.reduce((sum, b) => sum + (Number(b.todayPages) || 0), 0);
       document.getElementById('cardTotalPages').textContent = totalTodayPages;
 
-      // 카드 중앙 책 그리드 렌더링 (권수에 따라 최적 레이아웃 조정)
       const grid = document.getElementById('cardBooksGrid');
       const count = selectedBooks.length;
 
@@ -838,7 +646,7 @@
         titleSizeClass = 'text-[14px]';
         percentSizeClass = 'text-[19.5px]';
         gapClass = 'gap-2.5';
-      } else {
+      } else if (count === 6) {
         gridColsClass = 'grid-cols-6';
         coverMaxW = 'max-w-[82px]';
         titleSizeClass = 'text-[12.5px]';
@@ -851,7 +659,7 @@
       if (count === 0) {
         grid.innerHTML = `
           <div class="col-span-full text-center py-12 text-stone-400 font-serif-kr text-base">
-            오른쪽 [내 책장 / 표지 관리]에서 오늘 기록할 책을 선택해주세요.
+            오른쪽 [내 책장 / 표지 관리]에서 오늘 기록할 책을 추가하거나 선택해주세요.
           </div>
         `;
       } else {
@@ -859,14 +667,12 @@
           const pct = book.totalPages > 0
             ? Math.min(100, Math.max(0, Math.round((book.currentPages / book.totalPages) * 100)))
             : 0;
-          // 마스킹 테이프 미세 각도 변화로 아날로그 느낌 극대화
           const rotations = ['-rotate-1', 'rotate-1', '-rotate-[0.5deg]', 'rotate-[1.2deg]', '-rotate-[1.2deg]', 'rotate-0'];
           const rotClass = rotations[idx % rotations.length];
           const formattedTitle = escapeHtml(book.title).replace(/\n/g, '<br>');
 
           return `
             <div class="flex flex-col items-center text-center">
-              <!-- 책 표지 + 상단 마스킹 테이프 -->
               <div class="relative w-full ${coverMaxW} mx-auto mb-2.5">
                 <div class="masking-tape w-[34%] h-[11px] mx-auto -mb-[5px] relative z-10 ${rotClass}"></div>
                 <div class="w-full aspect-[1/1.38] bg-white overflow-hidden book-shadow rounded-[1px]">
@@ -874,19 +680,16 @@
                 </div>
               </div>
 
-              <!-- 책 제목 (2줄 높이 고정 정렬로 아래 진행바 수평 맞춤) -->
               <div class="h-[38px] flex items-center justify-center px-0.5 mb-1.5">
                 <p class="font-serif-kr font-bold ${titleSizeClass} leading-[1.22] text-[#22211F] tracking-tight line-clamp-2">
                   ${formattedTitle}
                 </p>
               </div>
 
-              <!-- 둥근 진행률 바 -->
               <div class="w-full ${coverMaxW} h-[8px] bg-[#D5D3CD] rounded-full overflow-hidden mb-1.5">
                 <div class="h-full bg-[#5B84B1] rounded-full transition-all duration-300" style="width: ${Math.max(pct > 0 ? 8 : 0, pct)}%;"></div>
               </div>
 
-              <!-- 기울임 굵은 명조 퍼센트 숫자 -->
               <div class="font-serif-bold font-black italic ${percentSizeClass} leading-none text-[#22211F] tracking-tight">
                 ${pct}%
               </div>
@@ -917,7 +720,7 @@
       if (selectedBooks.length === 0) {
         container.innerHTML = `
           <div class="p-6 text-center rounded-xl border border-dashed border-stone-300 text-stone-500 text-xs">
-            현재 선택된 책이 없습니다. 상단의 <b>+ 책 추가/선택</b> 버튼을 눌러 책을 선택해주세요.
+            현재 선택된 책이 없습니다. 상단의 <b>+ 책 추가/선택</b> 버튼을 눌러 책을 추가해주세요.
           </div>
         `;
         return;
@@ -943,7 +746,6 @@
             </div>
 
             <div class="flex items-center gap-2.5 self-end sm:self-center shrink-0">
-              <!-- 오늘 읽은 쪽수 입력 -->
               <div class="flex items-center bg-white border border-stone-300 rounded-lg px-2 py-1">
                 <span class="text-[11px] text-stone-500 mr-1.5">오늘</span>
                 <input
@@ -956,7 +758,6 @@
                 <span class="text-[11px] text-stone-500 ml-1">쪽</span>
               </div>
 
-              <!-- 누적 쪽수 직접 수정 -->
               <div class="flex items-center bg-white border border-stone-300 rounded-lg px-2 py-1" title="누적 읽은 쪽수 직접 수정">
                 <span class="text-[11px] text-stone-500 mr-1">누적</span>
                 <input
@@ -974,7 +775,6 @@
       }).join('');
     }
 
-    // 오늘 읽은 쪽수 변경 시 누적 쪽수 및 퍼센트 자동 연동
     function updateBookTodayPages(bookId, newTodayVal) {
       const modeData = getActiveModeData();
       const book = modeData.books.find(b => b.id === bookId);
@@ -992,7 +792,6 @@
       updateCardPreview();
     }
 
-    // 누적 쪽수 직접 수정
     function updateBookCurrentPages(bookId, newCurrentVal) {
       const modeData = getActiveModeData();
       const book = modeData.books.find(b => b.id === bookId);
@@ -1005,7 +804,7 @@
     }
 
     // ==========================================
-    // 6. 책장 관리 (추가, 표지 업로드, 선택 토글, 삭제)
+    // 6. 책장 관리
     // ==========================================
     function selectPresetColor(hex) {
       appState.selectedPresetColor = hex;
@@ -1025,7 +824,6 @@
       if (!file) return;
       const reader = new FileReader();
       reader.onload = function(e) {
-        // 이미지 리사이즈하여 localStorage 용량 절약 및 선명도 유지
         const img = new Image();
         img.onload = function() {
           const canvas = document.createElement('canvas');
@@ -1073,14 +871,13 @@
         title: title,
         totalPages: totalPages,
         currentPages: currentPages,
-        todayPages: currentPages > 0 ? Math.min(20, currentPages) : 10,
+        todayPages: 0,
         selected: selectedCount < 6,
         coverUrl: coverUrl
       };
 
       modeData.books.unshift(newBook);
 
-      // 입력 초기화
       titleInput.value = '';
       currentInput.value = '0';
       pendingUploadedCover = null;
@@ -1145,6 +942,15 @@
       const modeData = getActiveModeData();
       const container = document.getElementById('shelfListContainer');
 
+      if (modeData.books.length === 0) {
+        container.innerHTML = `
+          <div class="py-8 text-center text-stone-400 text-xs border border-dashed border-stone-200 rounded-xl">
+            등록된 책이 없습니다. 위 폼에서 첫 번째 책을 추가해보세요!
+          </div>
+        `;
+        return;
+      }
+
       container.innerHTML = modeData.books.map(book => {
         const pct = book.totalPages > 0 ? Math.round((book.currentPages / book.totalPages) * 100) : 0;
         const cleanTitle = book.title.replace(/\n/g, ' ');
@@ -1198,7 +1004,6 @@
         booksSnapshot: JSON.parse(JSON.stringify(selectedBooks))
       };
 
-      // 같은 날짜 & 같은 모드의 기존 기록이 있으면 덮어쓰기
       const existingIdx = appState.history.findIndex(h => h.date === entry.date && h.mode === entry.mode);
       if (existingIdx >= 0) {
         appState.history[existingIdx] = entry;
@@ -1223,7 +1028,6 @@
       modeData.noteLabel = entry.noteLabel;
       modeData.noteText = entry.noteText;
 
-      // 스냅샷 책 진도 복원
       entry.booksSnapshot.forEach(snap => {
         const target = modeData.books.find(b => b.id === snap.id);
         if (target) {
@@ -1286,7 +1090,7 @@
       localStorage.removeItem(STORAGE_KEY);
       appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
       switchMode('reading');
-      showToast('초기 샘플 상태로 복원되었습니다.', '🔄');
+      showToast('1일차 초기 상태로 초기화되었습니다.', '🔄');
     }
 
     // ==========================================
@@ -1299,7 +1103,6 @@
       btn.innerHTML = '<span>⏳ 고화질 카드 생성 중...</span>';
 
       try {
-        // 캡처 전용 클론 생성 (화면 스케일링 영향 없이 정확한 600x600 -> 2배수 1200x1200 고화질 출력)
         const sourceCard = document.getElementById('captureCard');
         const clone = sourceCard.cloneNode(true);
         clone.style.transform = 'none';
@@ -1310,11 +1113,10 @@
         clone.style.height = '600px';
         document.body.appendChild(clone);
 
-        // 웹폰트 로딩 완료 대기
         await document.fonts.ready;
 
         const canvas = await html2canvas(clone, {
-          scale: 2, // 1200x1200 고해상도 정사각형 이미지
+          scale: 2,
           useCORS: true,
           backgroundColor: '#F7F4EB',
           width: 600,
